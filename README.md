@@ -51,7 +51,7 @@ terraform state show <state name>        # show details of the given state
 terraform refresh      # refresh state file with current status from Cloud Console
 ```
 ### **Import current resources in state file**
-First add a new resource block with attributes 
+First add a new resource block with attributes in main.tf file or whichever file you used to create resource
 ```sh
 resource "aws_instance" "my_dummy_instance" {
   ami = "unkown"
@@ -94,15 +94,12 @@ Solution is creating a remote Backend using S3 and DynamoDB which will use lock 
 
 
 ```hcl
-terraform {
   backend "s3" {
-    bucket         = "my-terraform-state"
-    key            = "global/s3/terraform.tfstate"
+    bucket         = "rishindra-learning-tfstate-bucket"
+    key            = "terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-lock"
-    encrypt        = true
+    dynamodb_table = "rishindra-learning-dynamodb-table"
   }
-}
 ```
 ```sh
 terraform init  # Reinitialize with remote backend
