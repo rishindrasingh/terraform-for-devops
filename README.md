@@ -46,8 +46,28 @@ terraform destroy -auto-approve  # Without confirmation
 ### **Check Current State**
 ```sh
 terraform state list  # Lists all managed resources
-terraform show        # Shows detailed resource info
+terraform show        # Shows detailed info of all resources present in state file
+terraform state show <state name>        # show details of the given state
+terraform refresh      # refresh state file with current status from Cloud Console
 ```
+### **Import current resources in state file**
+add a new resource block with attributes 
+```sh
+resource "aws_instance" "my_dummy_instance" {
+  ami = "unkown"
+  instance_type = "unknown"  
+}
+```
+Now to import the current existing resource in your state 
+```sh
+terraform import aws_instance.my_dummy_instance <instance_id of current resource>
+```
+Now when you can check the state list to confirm if it is imported or now
+```sh
+terraform state list
+terraform state show aws_instance.my_dummy_instance
+```
+
 
 ### **Manually Modify State**
 ```sh
