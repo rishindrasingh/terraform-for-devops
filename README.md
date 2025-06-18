@@ -71,7 +71,7 @@ Now if you run terrform destroy command it will destroy all resources present in
 ```sh
 terraform destroy --auto-approve
 ```
-
+Once you run destroy command your state list will also be cleared. Now if you run terraform state list command it will not show you anything.
 
 ### **Manually Modify State**
 ```sh
