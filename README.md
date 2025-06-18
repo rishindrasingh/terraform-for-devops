@@ -78,6 +78,9 @@ Once you run destroy command your state list will also be cleared. Now if you ru
 terraform state mv <source> <destination>  # Move resource in state file
 terraform state rm <resource>  # Removes resource from state (not from infra)
 ```
+### **Problem with terraform State file**
+1. State file contains sensitive data which we cann't store on our SCM repository
+2. StateConflict arises when more than one people manages the infrastructure using the same .tf file
 
 ### **Remote Backend (S3 & DynamoDB)**
 ```hcl
