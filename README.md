@@ -82,7 +82,17 @@ terraform state rm <resource>  # Removes resource from state (not from infra)
 1. State file contains sensitive data which we cann't store on our SCM repository
 2. StateConflict arises when more than one people manages the infrastructure using the same .tf file
 
+Now what is the Solution for this problem?
+
 ### **Remote Backend (S3 & DynamoDB)**
+
+Solution is creating a remote Backend using S3 and DynamoDB which will use lock and release mechanism.
+
+*How it will Solve the problem.*
+1. We need to save our .tfstate file inside S3 bucket and it will be shared with your team.
+2. When a team member is interacting with .tfstate file stored inside S3 bucket it will generate a lockId in DynamoDb table which will restrict other users to use the same .tfstate file to manage the resource. 
+
+
 ```hcl
 terraform {
   backend "s3" {
