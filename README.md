@@ -92,9 +92,9 @@ Solution is creating a remote Backend using S3 and DynamoDB which will use lock 
 1. We need to save our .tfstate file inside S3 bucket and it will be shared with your team.
 2. When a team member is interacting with .tfstate file stored inside S3 bucket it will generate a lockId in DynamoDb table which will restrict other users to use the same .tfstate file to manage the resource. 
 
-Here we need to create a s3 bucket name rishindra-learning-tfstate-bucket and a dynamodb table name rishindra-learning-dynamodb-table with LockID as attributes for dynamoDb table. This resource we can created using terraform as well as manually also.
+Here we need to create a s3 bucket name rishindra-learning-tfstate-bucket and a dynamodb table name rishindra-learning-dynamodb-table with LockID as attributes for dynamoDb table. This resource we can create using terraform as well as manually also.
 
-Once that is created we need to add below line in our terraform.tf file where we have defined our providers 
+Once s3 bucketa and dynamoDB table is created we need to add below line in our terraform.tf file where we have defined our providers 
 
 ```hcl
   backend "s3" {
@@ -108,7 +108,7 @@ Now if we run
 ```sh
 terraform init  # Reinitialize with remote backend
 ```
-It will ask our permission to copy .tfstate file into s3 bucket and if we provide "yes" it will add our .tfstate file in s3 bucket
+It will ask our permission to copy .tfstate file into s3 bucket and if we provide "yes" it will add our .tfstate file in s3 bucket. That's it we have successfully configured remote backend in our project.
 
 ## **4. Variables & Outputs**
 ### **Define & Use Variables**
