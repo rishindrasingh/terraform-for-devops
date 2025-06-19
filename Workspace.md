@@ -8,6 +8,7 @@ The main idea behind Terraform workspaces is to provide a way to manage multiple
 1. **State Isolation:**
 
 a). Each workspace has its own Terraform state file (terraform.tfstate), which means changes in one workspace do not affect others.
+
 b). This is useful for managing environments like dev, staging, and prod using the same configuration but separate states.
 
 2. **Single Configuration, Multiple Environments:**
