@@ -38,11 +38,12 @@ Next you are ready to create your resources using terraform apply command
 terraform apply --auto-approve
 ```
 
-Now when we manage the resources of dev environment using same terraform configuration file, lets switch the terraform workspace to dev workspace and then switch the git branch also to dev branch
+Now to manage the resources of dev environment using same terraform configuration file, let's switch the terraform workspace to dev workspace and also switch the git branch  to dev branch
 
 ```sh
 terraform workspace select dev
-git checkout -b dev
+git checkout -b dev # if dev branch is not present
+git switch dev  # if dev branch is already present
 ```
 Next you can change the configuration file as per dev environment and then we need to add/commit it into git repo.
 ```sh
@@ -50,7 +51,7 @@ git add .
 git status
 git commit -m "Add your comments here"
 ```
-Now you can user terraform apply command to create/update your resources
+Now you can use terraform apply command to create/update your resources
 
 ```sh
 terraform apply --auto-approve
