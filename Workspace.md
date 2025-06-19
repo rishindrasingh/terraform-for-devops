@@ -44,11 +44,12 @@ Here lets create a "prod" environment first using terraform configuration file t
 
 This we will do by using git and terraform function.
 
-First create a branch name "master" if not already created for prod environment changes
+First create a branch name "master" if not already created for prod environment changes and also select the default workspace 
 ```sh
 git checkout -b master      #this will create a new branch and switch to that newly created branch
+terraform workspace select default  # it will switch to default workspace if not already there.
 ```
-Now you can add/commit your changes using git
+Now you can add/commit your changes using git for default workspace
 
 ```sh
 git add .
@@ -59,7 +60,8 @@ Next you are ready to create your resources using terraform apply command
 terraform apply --auto-approve
 ```
 
-Now to manage the resources of dev environment using same terraform configuration file, let's switch the terraform workspace to dev workspace and also switch the git branch  to dev branch
+Now to manage the resources of dev environment using same terraform configuration file, let's switch the terraform workspace to dev workspace and also switch the git branch  to dev branch.
+**Note**: As soon as you switch to dev branch your VS code will automaticall be updated with your dev branch changes.
 
 ```sh
 terraform workspace select dev
