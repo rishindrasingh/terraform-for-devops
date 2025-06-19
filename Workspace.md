@@ -37,6 +37,7 @@ c). **Simplify CI/CD pipelines**: Manage deployments across environments cleanly
 
 Workspaces isolate state, not configuration. If you need different configurations per environment (e.g., different resource sizes or regions), you’ll still need to use variables or separate directories/modules.
 
+**Demo**
 
 Here lets create a "prod" environment first using terraform configuration file then we will use the same code to create a "dev" environment
 
