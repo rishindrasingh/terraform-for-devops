@@ -1,23 +1,33 @@
 
-****WorkSpace: ****
-
-To list all workspace 
-```sh
-terraform workspace list   # to list all workspace
-```
-Now this list command will list all workspace along with it will also show your current workspace
-
-To create and switch to a new workspace
-```sh
-terraform workspace new dev
-```
-
-Now to switch to any other workspace 
-```sh
-terraform workspace select <workspace name>
-```
+**Workspace**
 
 The main idea behind Terraform workspaces is to provide a way to manage multiple instances of a Terraform configuration within the same directory, allowing you to isolate state files for different environments or use cases.
+
+🔑 Key Concepts of Terraform Workspaces:
+State Isolation:
+
+Each workspace has its own Terraform state file (terraform.tfstate), which means changes in one workspace do not affect others.
+This is useful for managing environments like dev, staging, and prod using the same configuration but separate states.
+Single Configuration, Multiple Environments:
+
+You can reuse the same Terraform code and switch between workspaces to deploy resources in different environments.
+Default Workspace:
+
+Terraform starts with a default workspace named default. You can create and switch to other workspaces as needed.
+Workspace Commands:
+```sh
+terraform workspace list – Lists all workspaces.
+terraform workspace new <name> – Creates a new workspace.
+terraform workspace select <name> – Switches to a workspace.
+terraform workspace show – Displays the current workspace.
+```
+🧠 Why Use Workspaces?
+Environment separation: Keep dev/test/prod environments isolated.
+Avoid state conflicts: Prevent overwriting or mixing up resources.
+Simplify CI/CD pipelines: Manage deployments across environments cleanly.
+⚠️ Limitations
+Workspaces isolate state, not configuration. If you need different configurations per environment (e.g., different resource sizes or regions), you’ll still need to use variables or separate directories/modules.
+
 
 Here lets create a "prod" environment first using terraform configuration file then we will use the same code to create a "dev" environment
 
