@@ -61,6 +61,7 @@ terraform apply --auto-approve
 ```
 
 Now to manage the resources of dev environment using same terraform configuration file, let's switch the terraform workspace to dev workspace and also switch the git branch  to dev branch.
+
 **Note**: As soon as you switch to dev branch your VS code will automaticall be updated with your dev branch changes.
 
 ```sh
