@@ -7,12 +7,12 @@ The main idea behind Terraform workspaces is to provide a way to manage multiple
 
 1. **State Isolation:**
 
-a. Each workspace has its own Terraform state file (terraform.tfstate), which means changes in one workspace do not affect others.
-b. This is useful for managing environments like dev, staging, and prod using the same configuration but separate states.
+a). Each workspace has its own Terraform state file (terraform.tfstate), which means changes in one workspace do not affect others.
+b). This is useful for managing environments like dev, staging, and prod using the same configuration but separate states.
 
 2. **Single Configuration, Multiple Environments:**
 
-a. You can reuse the same Terraform code and switch between workspaces to deploy resources in different environments.
+a). You can reuse the same Terraform code and switch between workspaces to deploy resources in different environments.
 
 3. **Default Workspace:**
 
@@ -34,6 +34,7 @@ b). **Avoid state conflicts**: Prevent overwriting or mixing up resources.
 c). **Simplify CI/CD pipelines**: Manage deployments across environments cleanly.
 
 ⚠️ **Limitations**
+
 Workspaces isolate state, not configuration. If you need different configurations per environment (e.g., different resource sizes or regions), you’ll still need to use variables or separate directories/modules.
 
 
