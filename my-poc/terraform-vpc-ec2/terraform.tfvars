@@ -1,0 +1,10 @@
+region = "us-east-1"
+vpc_name = "my-vpc"
+vpc_cidr = "10.0.0.0/16"
+availability_zones = [ "us-east-1a","us-east-1b" ]
+public_subnet_cidr = ["10.0.101.0/24", "10.0.102.0/24"]
+private_subnet_cidr = ["10.0.1.0/24", "10.0.2.0/24"]
+env = "dev"
+ec2_default_root_volume_size = 15
+ec2_instance_type = "t2.medium" # Change to your desired instance type
+ec2_ami = "ami-020cba7c55df1f615"
